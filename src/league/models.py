@@ -16,6 +16,7 @@ class Game(models.Model):
     
 class Season(models.Model):
     season_name = models.CharField(max_length=100)
+    active = models.BooleanField(default=True)
     def __str__(self):
         return self.season_name
     
@@ -25,7 +26,7 @@ class Session(models.Model):
     season = models.ForeignKey(Season)
     location = models.ForeignKey(Location)
     def __str__(self):
-        return self.session_date
+        return str(self.session_date)
 
 class Player(models.Model):
     player_name = models.CharField(max_length=100)
